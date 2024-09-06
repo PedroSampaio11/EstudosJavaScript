@@ -1,0 +1,19 @@
+body{
+    /* scroll */
+    margin-bottom: 1000px;
+}
+
+#title{
+    cursor: pointer;
+}
+
+button{
+    cursor: pointer;
+}
+
+#btn-container{
+    padding: 30px;
+    background-color: grey;
+    text-align: center;
+    margin-top: 20px;
+}
