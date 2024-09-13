@@ -17,3 +17,10 @@ button{
     text-align: center;
     margin-top: 20px;
 }
+
+#my-input{
+    outline: none;
+    padding: 8px;
+    border: none; /* Borda padrão */
+    outline: none;
+}

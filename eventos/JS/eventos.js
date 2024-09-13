@@ -82,4 +82,65 @@ mousEvents.addEventListener("dblclick", (e) => {
   console.log("2 vezes");
 });
 
+// mouse move
 
+// document.addEventListener("mousemove", (e)=>{
+//   console.log(`no x: ${e.x} `)
+//   console.log(`no y : ${e.y}`)
+// })
+
+// scroll
+
+window.addEventListener("scroll", (e) => {
+  // sabe a posiçao
+  if (window.scrollY > 200) {
+    console.log("rolou 200 px");
+  }
+});
+
+// focus
+
+const focus = document.querySelector("#my-text");
+
+focus.addEventListener("focus", () => {
+  console.log("foi focado");
+  focus.style.border = "5px solid green";
+});
+
+focus.addEventListener("blur", () => {
+  console.log("O elemento perdeu o foco");
+  focus.style.border = "1px solid yellow";
+});
+
+// carregamento
+
+window.addEventListener("load", () => {
+  console.log("carregou");
+});
+
+window.addEventListener("beforeunload", (e) => {
+  e.preventDefault();
+  e.returnValue = "";
+});
+
+// debounce
+
+const debounce = (f, delay) => {
+  let timeout;
+  return (...args) => {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(() => {
+      f.apply(args);
+    }, delay);
+  };
+};
+
+window.addEventListener(
+  "mousemove",
+  debounce(() => {
+    console.log("mouse move a cada 400ms");
+  }, 400)
+);
