@@ -25,7 +25,7 @@ const user = {
   nome: "pedro",
   sayHello() {
     setTimeout(function () {
-      console.log(`name: ${this.nome}`);
+      console.log(`username: ${this.nome}`);
     }, 1000);
   },
 
