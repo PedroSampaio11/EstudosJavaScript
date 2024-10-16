@@ -1,4 +1,4 @@
-/** @format */
+
 // pegando os dados
 const getData = async () => {
   try {
