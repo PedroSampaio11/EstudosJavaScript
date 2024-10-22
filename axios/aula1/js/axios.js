@@ -1,42 +1,41 @@
 /** @format */
 
-const pegar = async () => {
+const pegarData = async () => {
   try {
     const response = await axios.get(
       "https://jsonplaceholder.typicode.com/users"
     );
-    console.log(response.data);
+
     return response.data;
   } catch (error) {
     console.log(error);
   }
 };
-pegar();
+pegarData();
 
-const imprimir = async () => {
-  try {
-    const resposta = await pegar();
+const container = document.querySelector("#container");
 
-    console.log(resposta)
+const imprimirData = async () => {
+  const usersData = await pegarData();
 
-    resposta.forEach(usuarios => {
+  if (usersData) {
+    usersData.forEach((user) => {
+      const nome = user.name;
+      const celular = user.phone;
+
       const div = document.createElement("div")
       container.appendChild(div)
 
-      const nomes = document.createElement("h1")
-      nomes.textContent = ` Nome: ${usuarios.name}`
+      const h2 = document.createElement("h2")
+      h2.textContent = nome
 
-      const emails = document.createElement("h2")
-      emails.textContent = `Email: ${usuarios.email}`
-      emails.style.color = "pink"
-
-      div.appendChild(nomes)
-      div.appendChild(emails)
-
+      const p = document.createElement("p")
+        p.textContent = celular
+      
+      div.appendChild(h2)
+      div.appendChild(p)
     });
-  } catch (err) {
-    console.log(err);
   }
 };
+imprimirData();
 
-imprimir()
